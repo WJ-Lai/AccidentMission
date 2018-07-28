@@ -43,5 +43,7 @@ function [data_n_people, data_n_week] = DataExtract(data_people, data_week, id_d
         %受伤人数
         data_n_week(:,6+i_week) = data_week(:,24 + id_death(i_week));
     end
+    %死亡率(非准确)
+    data_n_week(:,12:16) = data_n_week(:,2:6)./(data_n_week(:,2:6)+data_n_week(:,7:11));
 
 end

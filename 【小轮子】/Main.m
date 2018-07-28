@@ -44,12 +44,14 @@ data_week = sun_week;
 
 %散点图需要的数据：
 %sun_X里面事故率、死亡个数、受伤个数
-sun = [sun_young(:,1:2) sun_middle(:,1:2) sun_old(:,1:2)];  %若只需事故率和死亡个数
+sun = [sun_young(:,1),sun_young(:,2)./sun_young(:,3),sun_middle(:,1),sun_middle(:,2)./ sun_middle(:,3),sun_old(:,1),sun_old(:,2)./sun_old(:,3)];  %若只需事故率和死亡个数
 xlswrite('G:\study\2018暑假\智能汽车课题组\For Weijian_20180704\代码\【小轮子】\data\sun.xlsx',sun);
 
 %折线图和调和曲线需要数据
 %data_n_week内直接用于spss
-xlswrite('G:\study\2018暑假\智能汽车课题组\For Weijian_20180704\代码\【小轮子】\data\sun_week.xlsx',data_n_week);
+sun_spss = data_n_week;
+sun_spss(isnan(sun_spss)) = 0;
+xlswrite('G:\study\2018暑假\智能汽车课题组\For Weijian_20180704\代码\【小轮子】\data\sun_week.xlsx',sun_spss);
 
 
 %% 雨天
@@ -89,9 +91,12 @@ data_week = rain_week;
 
 %散点图需要的数据：
 %sun_X里面事故率、死亡个数、受伤个数
-rain = [rain_young(:,1:2) rain_middle(:,1:2) rain_old(:,1:2)];  %若只需事故率和死亡个数
+%rain = [rain_young(:,1:2) rain_middle(:,1:2) rain_old(:,1:2)];  %若只需事故率和死亡个数
+rain = [rain_young(:,1),rain_young(:,2)./rain_young(:,3),rain_middle(:,1),rain_middle(:,2)./ rain_middle(:,3),rain_old(:,1),rain_old(:,2)./rain_old(:,3)];
 xlswrite('G:\study\2018暑假\智能汽车课题组\For Weijian_20180704\代码\【小轮子】\data\rain.xlsx',rain);
 
 %折线图和调和曲线需要数据
 %data_n_week内直接用于spss
-xlswrite('G:\study\2018暑假\智能汽车课题组\For Weijian_20180704\代码\【小轮子】\data\rain_week.xlsx',data_n_week);
+rain_spss = data_n_week;
+rain_spss(isnan(rain_spss)) = 0;
+xlswrite('G:\study\2018暑假\智能汽车课题组\For Weijian_20180704\代码\【小轮子】\data\rain_week.xlsx',rain_spss);
