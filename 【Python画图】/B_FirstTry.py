@@ -17,20 +17,22 @@ G.add_edges_from([(a, b),(a, c),(a, d),(a ,e),
                   (d, e)])
 
 #设置点的颜色
-red = [a, b, c ]
-green = [d, e]
+red = [a, b, c]
+blue = [d]
+yello = [e]
 
 # 设置连线的颜色
-red_edges = [('A', 'C')]
-black_edges = [('D', 'B')]
-green_edges = [('A', 'B')]
+red_edges = [(a, c)]
+black_edges = [(d, b)]
+green_edges = [(a, b)]
 
 
 #设置原点的编排方式
 pos = nx.circular_layout(G)
 #设置点的参数
-nx.draw_networkx_nodes(G, pos,nodelist =red, node_color = 'r', node_size = 500)
-nx.draw_networkx_nodes(G, pos,nodelist =green, node_color = 'g', node_size = 100)
+nx.draw_networkx_nodes(G, pos,nodelist =red, node_color = 'r', node_size = 900)
+nx.draw_networkx_nodes(G, pos,nodelist =blue, node_color = 'b', node_size = 900)
+nx.draw_networkx_nodes(G, pos,nodelist =yello, node_color = 'y', node_size = 900)
 
 #显示点的名称
 nx.draw_networkx_labels(G, pos)
