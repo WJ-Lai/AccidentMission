@@ -6,6 +6,10 @@ load('spss.mat')
 [sun_label] = LabelChange(sun_spss(:,1));
 [rain_label] = LabelChange(rain_spss(:,1));
 
+%归一化
+sun_spss = mapminmax(sun_spss')';
+rain_spss = mapminmax(rain_spss')';
+
 %% 绘制晴天
 
 %死亡人数
