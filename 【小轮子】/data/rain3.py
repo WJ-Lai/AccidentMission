@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import matplotlib.cbook as cbook
 
 #获取数据
-file_path = r'rain.xlsx'
+file_path = r'rain3.xlsx'
 data = xlrd.open_workbook(file_path)
 
 #获取sheet
@@ -18,7 +18,7 @@ nrows = table.nrows
 ncols = table.ncols
 
 size_accident= 100
-size_death =55000
+size_death =80
 #读取青年组数据
 Y_accident = np.array(table.col_values(0))
 Y_accident = Y_accident * size_accident
@@ -41,7 +41,7 @@ O_death = O_death * size_death
 fig, ax = plt.subplots()
 #使x坐标轴等距
 x = np.arange(5)
-ax.set_xticklabels(['CSV','SP','OVA','CS','HF'],fontsize=12)
+ax.set_xticklabels(['CSV','CS','OVA','SP','HF'],fontsize=12)
 #s控制大小，不同的类用不同的type，alpha是透明度
 young = ax.scatter(x,Y_accident, s=Y_death, alpha=0.5)
 middle= ax.scatter(x,M_accident, s=M_death, alpha=0.5)
@@ -54,7 +54,7 @@ ax.set_title('Crash Involvement Pattern on Rainy Day', fontsize=15)
 plt.yscale('log')
 #设置坐标轴最大最小值
 plt.xlim(-1,5)
-plt.ylim(0.3,300)
+plt.ylim(0.1,1000)
  
 #只显示竖线
 ax.grid(axis= 'x')
