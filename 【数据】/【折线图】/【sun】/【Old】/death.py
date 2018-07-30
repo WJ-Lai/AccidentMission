@@ -8,14 +8,24 @@ c = 'OVA'
 d = 'SP'
 e = 'HF'
 nodes_size = 1200
-edges_multiple = 50
+edges_multiple = 38
 data_edges_list = [[(a, b)],[(a, c)],[(a, d)],[(a ,e)],
                    [(b, c)],[(b, d)],[(b, e)],
                    [(c, d)],[(c ,e)],
                    [(d, e)]]
-data_edges_color = ['white','gray','gray','gray','darkblue','white','gray','darkblue','white','blue']
-data_edges_width = [10,10,10,10,10,10,10,10,10,10]
+#负相关为'gray'，正相关为'darkslategrey'
+data_edges_color = ['darkslategrey','darkslategrey','darkslategrey','darkslategrey',
+                    'darkslategrey','darkslategrey','darkslategrey',
+                    'darkslategrey','darkslategrey',
+                    'darkslategrey']
+data_edges_width = [0, 0, 0.110, 0,
+                    0, 0, 0,
+                    0, 0.894,
+                    0]
+for index in range(len(data_edges_width)):
+   data_edges_width[index] = data_edges_width[index]*edges_multiple
 
+print(data_edges_width)
 
 #设置点的名称
 G.add_nodes_from([a, b, c, d, e])

@@ -16,7 +16,7 @@ id_death = [1 2 4 5 14];
 %中年40-50
 %老年60-100
 %年龄在第6列
-data = sun_people;
+data = data_people;
 year_location = 6;
 young_min = 18;
 young_max = 30;

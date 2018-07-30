@@ -13,9 +13,19 @@ data_edges_list = [[(a, b)],[(a, c)],[(a, d)],[(a ,e)],
                    [(b, c)],[(b, d)],[(b, e)],
                    [(c, d)],[(c ,e)],
                    [(d, e)]]
-data_edges_color = ['white','gray','gray','gray','darkblue','white','gray','darkblue','white','blue']
-data_edges_width = [10,10,10,10,10,10,10,10,10,10]
+#负相关为'gray'，正相关为'darkslategrey'
+data_edges_color = ['darkslategrey','darkslategrey','darkslategrey','darkslategrey',
+                    'darkslategrey','darkslategrey','darkslategrey',
+                    'darkslategrey','darkslategrey',
+                    'darkslategrey']
+data_edges_width = [0.149, 0.265, 0.455, 0.135,
+                    0.030,  0.1, 0.024,
+                    0.159, 0.087,
+                    0.119]
+for index in range(len(data_edges_width)):
+   data_edges_width[index] = data_edges_width[index]*edges_multiple
 
+print(data_edges_width)
 
 #设置点的名称
 G.add_nodes_from([a, b, c, d, e])
