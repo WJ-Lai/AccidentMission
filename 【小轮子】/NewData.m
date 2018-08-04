@@ -1,7 +1,7 @@
 %输入：
 %标有label数据集
 %输出：
-%将同一周的事故融合，生成新的样本new_data，并统计不同事故形态的死伤个数
+%将同一周的事故融合，生成新的样本new_data，并统计不同事故形态的死伤个数(还未分年龄，但已经涉及天气)
 function data_week = NewData(data_people)
     
     %删除包含NAN的行
