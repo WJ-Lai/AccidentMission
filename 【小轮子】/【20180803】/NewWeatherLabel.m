@@ -23,7 +23,7 @@ function [sun_week, rain_week] = NewWeatherLabel(data_people)
         
         %判断一周是否结束
         if i ~= 1
-            if data_people(i, 3)==1 && data_people(i-1, 3)==7
+            if data_people(i, 3) < data_people(i-1, 3)
                 sign_week = 1;
             end
         end

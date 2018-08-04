@@ -67,15 +67,19 @@ xlswrite('G:\study\2018暑假\智能汽车课题组\For Weijian_20180704\代码\【小轮子】\
 xlswrite('G:\study\2018暑假\智能汽车课题组\For Weijian_20180704\代码\【小轮子】\【20180803】\sun_week_old.xlsx',week_old_extract);
 
 %调和曲线
-[m_young, n_young] = size(sun_week_young);
+[m_young, n_young] = size(week_young_extract);
 young_label(1:m_young,1) = {'Young'};
-[m_middle, n_middle] = size(sun_week_middle);
+[m_middle, n_middle] = size(week_middle_extract);
 middle_label(1:m_middle,1) = {'Middle'};
-[m_old, n_old] = size(sun_week_old);
+[m_old, n_old] = size(week_old_extract);
 old_label(1:m_old,1) = {'Old'};
-label = [young_label; middle_label; old_label];
-data = [sun_week_young; sun_week_middle; sun_week_old]
-AndrewsPlot2(data,label)
+label_sun = [young_label; middle_label; old_label];
+data_sun = [week_young_extract; week_middle_extract; week_old_extract];
+data_sun2 = mapminmax(data_sun',-0.5,0.5)';
+AndrewsPlot2(data_sun2,label_sun);
+AndrewsPlot2(week_young_extract,young_label);
+AndrewsPlot2(week_middle_extract, middle_label);
+AndrewsPlot2(week_old_extract, old_label);
 %% 雨天
 
 %提取有用信息
@@ -110,12 +114,20 @@ save data.mat
 xlswrite('G:\study\2018暑假\智能汽车课题组\For Weijian_20180704\代码\【小轮子】\【20180803】\weather.xlsx',difference);
 
 %调和曲线
-[m_young, n_young] = size(rain_week_young);
+[m_young, n_young] = size(week_young_extract);
 young_label(1:m_young,1) = {'Young'};
-[m_middle, n_middle] = size(rain_week_middle);
+[m_middle, n_middle] = size(week_middle_extract);
 middle_label(1:m_middle,1) = {'Middle'};
-[m_old, n_old] = size(rain_week_old);
+[m_old, n_old] = size(week_old_extract);
 old_label(1:m_old,1) = {'Old'};
-label = [young_label; middle_label; old_label];
-data = [rain_week_young; rain_week_middle; rain_week_old]
-AndrewsPlot2(data,label)
+label_rain = [young_label; middle_label; old_label];
+data_rain = [week_young_extract; week_middle_extract; week_old_extract];
+data_rain2 = mapminmax(data_rain',-0.5,0.5)';
+AndrewsPlot2(data_rain2 ,label_rain);
+AndrewsPlot2(week_young_extract,young_label);
+AndrewsPlot2(week_middle_extract, middle_label);
+AndrewsPlot2(week_old_extract, old_label);
+
+data = [data_sun; data_rain];
+label = [label_sun;label_rain];
+AndrewsPlot2(data, label);
